@@ -1,0 +1,23 @@
+server:
+  port: 8082
+  servlet:
+    path: /tx
+
+
+#person:
+#  hello: luky
+#  lastName: Smile
+#  age: 18
+#  boss: true
+#  birth: 2010/2/5
+#  maps: {key1: value1,key2, value2}
+#  list: [dog, cat, house]
+#  dog:
+#    #name: WangCao
+#    #age: 3
+#    #name: ${person.hello}
+#    #age: ${person.age}
+#    name: ${person.hello}_dog
+#    age: ${random.int}
+
+
