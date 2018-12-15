@@ -21,3 +21,29 @@ server:
 #    age: ${random.int}
 
 
+---
+
+#active
+spring:
+  profiles:
+   active: prod
+
+
+---
+
+#11 springboot的配置profiles详解
+server:
+  port: 8081
+spring:
+  profiles: dev
+
+---
+
+#spit document with "---"
+server:
+  port: 8082
+spring:
+  profiles: prod
+
+
+
