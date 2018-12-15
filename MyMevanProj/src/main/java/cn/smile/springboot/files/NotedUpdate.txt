@@ -12,7 +12,24 @@
    配置相同，则就近原则。其优先级为：1> 2 > 3 > 4
    配置不同，则相对补充，互补配置。
 
-   推荐在resources中使用配置文件，但是还是得根据项目的需要进行调整。
+   推荐在resources文件夹中使用配置文件，但是还是得根据项目的需要进行调整。
+   resources文件夹外中的配置文件打包的时候会丢失。。。。所以不推荐使用config 1 和config 2
+
+13 springboot外部配置文件加载
+    package打包好之后，依然想使用外部的配置文件方法： cmd启动程序加参数指定配置文件：
+    D:\gitRepo\Springboot\Springboot\MyMevanProj\target>java -jar MyMevanProj-1.0-SNAPSHOT.jar --spring.config.location=C:/application.properties
+
+    注： cmd启动加载外部配置文件不会进行相对补充。如果需要的话，还可以通过其他的参数进行配置，如：
+    D:\gitRepo\Springboot\Springboot\MyMevanProj\target>java -jar MyMevanProj-1.0-SNAPSHOT.jar --spring.config.location=C:/application.properties --server.servlet.context-path=/tx
+
+    除了cmd启动程序加参数指定配置文件之外，还可以通过cmd加参数的方式加载外部的其他的文件。如
+        a. 来自java.comp/env的JNDI属性
+        b. Java系统属性（System.getProperties()）
+        c. 操作系统环境变量。 等等
+    多个配置用空格分开； --配置项=值
+
+
+
 
 
 
