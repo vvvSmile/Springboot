@@ -5,6 +5,11 @@
       "sourceType": "cn.smile.springboot.model.Person",
       "name": "person",
       "type": "cn.smile.springboot.model.Person"
+    },
+    {
+      "sourceType": "cn.smile.springboot.model.Person3",
+      "name": "person3",
+      "type": "cn.smile.springboot.model.Person3"
     }
   ],
   "properties": [
@@ -53,6 +58,53 @@
     {
       "sourceType": "cn.smile.springboot.model.Person",
       "name": "person.maps",
+      "type": "java.util.Map<java.lang.String,java.lang.String>"
+    },
+    {
+      "sourceType": "cn.smile.springboot.model.Person3",
+      "defaultValue": 0,
+      "name": "person3.age",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "cn.smile.springboot.model.Person3",
+      "name": "person3.birth",
+      "type": "java.util.Date"
+    },
+    {
+      "sourceType": "cn.smile.springboot.model.Person3",
+      "defaultValue": false,
+      "name": "person3.boss",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "cn.smile.springboot.model.Person3",
+      "name": "person3.dog",
+      "type": "cn.smile.springboot.model.Dog"
+    },
+    {
+      "sourceType": "cn.smile.springboot.model.Person3",
+      "name": "person3.email",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "cn.smile.springboot.model.Person3",
+      "name": "person3.hello",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "cn.smile.springboot.model.Person3",
+      "name": "person3.last-name",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "cn.smile.springboot.model.Person3",
+      "name": "person3.list",
+      "type": "java.util.List<java.lang.String>"
+    },
+    {
+      "sourceType": "cn.smile.springboot.model.Person3",
+      "name": "person3.maps",
       "type": "java.util.Map<java.lang.String,java.lang.String>"
     }
   ]

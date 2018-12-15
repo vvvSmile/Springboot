@@ -4,7 +4,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 public class ContextLoaderTest {
     public static void main(String[] args) {
-        AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext(ParentConfig.class,Student.class);
+        AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext(ParentConfig.class,Student.class,BeanTest.class);
         Car car=(Car) context.getBean("toyota");
         car.print();
 
@@ -13,5 +13,9 @@ public class ContextLoaderTest {
 
         Student student=(Student) context.getBean("student");
         student.print();
+
+        BeanTest beanTest=(BeanTest)context.getBean("BeanTest");
+        System.out.println(beanTest);
+
     }
 }

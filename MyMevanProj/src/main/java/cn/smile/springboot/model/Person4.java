@@ -1,44 +1,43 @@
 package cn.smile.springboot.model;
 
-/**
- *use @Value annotation to read config file
+/***
+ * use below annotation to read config file
+ * @ConfigurationProperties(prefix="person")
  */
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-@Component
-//@ConfigurationProperties(prefix="person")
-public class Person2 {
+//@PropertySource(value = {"classpath:person3.properties"})
+//@Component
+//@ConfigurationProperties(prefix="person3")  //the prefix is referring to the prefix that in the config file
+////@Validated  //used for Email check there//Special
+public class Person4 {
 
-    @Value("${person.hello}")
+    //@Email  //need @Validated
+    String email;
+
     String hello;
-
-    @Value("${person.last-name}")
     String lastName;
-
-    //@Value("${person.age}")
-    @Value("#{12*3}") //special
     int age;
-
-    @Value("${person.boss}")
     boolean boss;
-
-    @Value("${person.birth}")
     Date birth;
-
     Map<String,String> maps;
-
-    @Value("${person.list}")
     List<String> list;
-
-
     Dog dog;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public String getHello() {
         return hello;
@@ -106,8 +105,9 @@ public class Person2 {
 
     @Override
     public String toString() {
-        return "Person2{" +
-                "hello='" + hello + '\'' +
+        return "Person4{" +
+                "email='" + email + '\'' +
+                ", hello='" + hello + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", age=" + age +
                 ", boss=" + boss +
