@@ -3,6 +3,21 @@
 * https://ke.qq.com/course/179440
 ***/
 
+##############################################
+#11 springboot的配置profiles详解
+server.port=8080
+spring.profiles.active=dev
+#note: just in case of no default application.properties file
+# 1. Edit Run/Debug configuration-->VM Option: -Dspring.profiles.active=prod
+# 2. Run command:
+#       a.Generate package:  Maven--> LifeCycle-->package
+#       b.cmd: D:\gitRepo\Springboot\Springboot\MyMevanProj\target>java -jar MyMevanProj-1.0-SNAPSHOT.jar --spring.profiles.active=dev
+#       c.Check the server.port if correct
+#       d:Double check: ctrl+c to stop the running package and run D:\gitRepo\Springboot\Springboot\MyMevanProj\target>java -jar MyMevanProj-1.0-SNAPSHOT.jar --spring.profiles.active=prod
+
+# yaml file: the same as application.properties file
+
+##############################################
 12 springboot配置文件加载位置和优先级
     config 1：与src同级别的config文件夹中的配置文件
     config 2：直接在项目下面的配置文件--指的是配置文件跟src同一个文件夹
@@ -15,6 +30,7 @@
    推荐在resources文件夹中使用配置文件，但是还是得根据项目的需要进行调整。
    resources文件夹外中的配置文件打包的时候会丢失。。。。所以不推荐使用config 1 和config 2
 
+##############################################
 13 springboot外部配置文件加载
     package打包好之后，依然想使用外部的配置文件方法： cmd启动程序加参数指定配置文件：
     D:\gitRepo\Springboot\Springboot\MyMevanProj\target>java -jar MyMevanProj-1.0-SNAPSHOT.jar --spring.config.location=C:/application.properties
@@ -29,7 +45,74 @@
     多个配置用空格分开； --配置项=值
 
 
+##############################################
+14 springboot自动配置原理上
+15 springboot自动配置原理中
+16 springboot自动配置原理下
 
+    自动配置基本原理：
+    @SpringBootApplication --> @EnableAutoConfiguration --> @Import({AutoConfigurationImportSelector,class}) 自动配置导入选择器
+    --> public Sring[] selectImports 选择方法 --> protected List<String> getCondidateConfigurations 获取候选配置方法
+    --> loadFactoryNames 方法 --> loadSpringFactories 方法 --> 从文件“META-INF/spring.factories”文件中获取 urls,这个文件包含了所有自动配置类-全部以AutoConfiguration结尾
 
+    从urls中找一个配置类分析 HttpEncodingAutoConfiguration --> @EnableConfigurationProperties({HttpEncodingProperties.class}) 启用配置属性--这样才能允许我们自定义配置，比如server.port=8081
+    --> @ConfigurationProperties(prefix="spring.http.encoding") 通过这个prefix前缀，我们在自定义配置（如server.port=8081）的时候IDEA就能够给我们只能提示。//从配置文件中获取指定的值和bean的属性进行绑定
+    因为IDEA会自动通过这个前缀自动获取属性，以及智能提示，通过智能提示，我们可以判断哪些属性可以自定义配置。如：
+    server.port=8081
+    spring.http.encoding.charset=UTF-8  -->编码模块的配置
+
+    在取一个自动配置类：MultipleAutoConfiguration ， @EnableConfigurationProperties({MultipleAutoConfiguration.class}) 启用配置属性 --> MultipleProperties 包括一个前缀，以及文件上传的一些属性配置
+    spring.servlet.multipart.max-file-size=10M    --> 文件上传的配置
+
+    其他自动配置类也是类似。
+
+    配置类（HttpEncodingAutoConfiguration）的其他注解说明：
+    a. @Configuration //表示这是一个配置类，以前编写的配置文件一样，也可以给容器中添加组件
+    b. @EnableConfigurationProperties({HttpEncodingProperties.class}) //启动指定类的ConfigurationProperties功能；将配置文件中对应的值和HttpEncodingProperties绑定起来；并把HttpEncodingProperties加入到IOC容器中。
+    c. @ConditionalOnWebApplication(type=Type.SERVLET) //ConditionalOn说明满足一个条件： 在满足一个WebApplication的条件下，也就是说如果是一个Web的应用程序，则这个属性是开启的。如果当前的应用程序不是Web,那就没有必要用到这个属性。
+        --> Spring底层@Conditianl注解（Spring注解版），根据不同的条件，如果满足指定的条件，整个配置类里面的配置就会生效；判断当前应该应用是否Web应用，如果是，当前配置类生效
+    d. @ConditinalOnClass({CharacterEncodingFilter.class}) //在CharacterEncodingFilter这个过滤器类存在的时候使用这个特性。--> CharacterEncodingFilter 过滤器Bean
+        -->判断当前项目中有没有这个类
+    e. @ConditionalOnProperty{
+            prefix="spring.http.encoding",
+            value={"Enabled"}，
+            matchIfMissing=true
+        }
+        说明在满足这些条件的时候才使用这个属性。
+        //判断配置文件中是否存在某个配置 spring.http.encoding.enabled;如果不存在，判断也是成立的
+        //即使我们配置文件中不配置spring.http.encoding.enabled，也是默认生效的
+
+    @Configuration
+    @EnableConfigurationProperties(HttpEncodingProperties.class)
+    @ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.SERVLET)
+    @ConditionalOnClass(CharacterEncodingFilter.class)
+    @ConditionalOnProperty(prefix = "spring.http.encoding", value = "enabled", matchIfMissing = true)
+    public class HttpEncodingAutoConfiguration {
+        //他已经和Springboot的配置文件映射了
+    	private final HttpEncodingProperties properties;
+        //只有一个有参构造器的情况下，参数的值就会从容器中拿
+    	public HttpEncodingAutoConfiguration(HttpEncodingProperties properties) {
+    		this.properties = properties;
+    	}
+
+    	@Bean  //给容器中添加一个组件，这个组件的某些值需要从properties中获取
+    	@ConditionalOnMissingBean  //判断容器没有这个组件
+    	public CharacterEncodingFilter characterEncodingFilter() {
+    		CharacterEncodingFilter filter = new OrderedCharacterEncodingFilter();
+    		filter.setEncoding(this.properties.getCharset().name());
+    		filter.setForceRequestEncoding(this.properties.shouldForce(Type.REQUEST));
+    		filter.setForceResponseEncoding(this.properties.shouldForce(Type.RESPONSE));
+    		return filter;
+    	}
+
+    总结：
+        1) Springboot 启动会加载大量的自动配置类
+        2）我们看我们需要的功能有你没有Springboot默认写好的自动配置类
+        3）再看这个自动配置类中到底配置了哪些组件；（只要我们要用的组件有，我们就不需要再配置了）
+        4）给容器中自动配置类添加组建的时候，会从properties类种获取某些属性。我们就可以在配置中指定这些属性的值
+            xxxxAutoConfiguration 为自动配置类， 给容器中添加组件
+        5）可以通过更改配置文件debug=true查看哪些自动配置类使用在当前应用。--也可以打断点的方式查看
+
+##############################################
 
 

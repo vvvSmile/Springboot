@@ -7,6 +7,7 @@ package cn.smile.springboot;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ImportResource;
+//import org.springframework.boot.autoconfigure.web.servlet.HttpEncodingAutoConfiguration;
 
 @ImportResource(locations={"classpath:beans.xml"})
 @SpringBootApplication
