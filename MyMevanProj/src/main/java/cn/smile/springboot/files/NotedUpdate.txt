@@ -1,0 +1,14 @@
+/***
+* 只是用来记录文本笔记：
+* https://ke.qq.com/course/179440
+***/
+
+12 springboot配置文件加载位置和优先级
+    config 1：与src同级别的config文件夹中的配置文件
+    config 2：直接在项目下面的配置文件--指的是配置文件跟src同一个文件夹
+    config 3：src/main/resources/config 下的配置文件
+    config 4：src/main/resources 下的配置文件
+
+   配置相同，则就近原则。其优先级为：1> 2 > 3 > 4
+   配置不同，则相对补充，互补配置。
+
