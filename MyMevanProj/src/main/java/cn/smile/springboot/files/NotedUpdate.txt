@@ -114,6 +114,8 @@ spring.profiles.active=dev
         5）可以通过更改配置文件debug=true查看哪些自动配置类使用在当前应用。--也可以打断点的方式查看
 
 ##############################################
+Web开发
+##############################################
 17 springboot之web静态资源访问规则
     1). src/resources/static文件夹相当于 Spring MVC中的webApp。 里面一般存放css，images，.html文件。
         静态资源访问如：http://localhost:8081/tx/index.html
@@ -136,5 +138,28 @@ spring.profiles.active=dev
 
     4）WebMvcAutoConfiguration.class WebMvc自动配置类分析为何webjars能生效：
 
-    
+##############################################
+18 thymeleaf模板加载流程
+    模板有很多种：JSP，Velocity，Freemarker，Thymeleaf。。。
+    Springboot推荐使用Thymeleaf： 语法更简单，功能更强大。
+
+    1）使用thymeleaf：
+        a. 在pom.xml文件中引入：
+            <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-thymeleaf</artifactId>
+            </dependency>
+        b. ThymeleafAutoConfiguration.class分析：
+            默认的前缀prefix="classpath:/templates/"
+            默认的后缀suffix=".html"
+            默认的模式mode="HTML"  --Thymeleaf支持6中模式
+            当然前缀后缀等属性可以通过配置文件进行更改，但是一般不建议更改。
+        c. resources/templates 文件夹里面的内容是受保护的，不能直接访问，类似于之前web项目中的web info是一样的。
+        d. 创建TemplateController使用模板。
+        e. 访问模板： http://localhost:8081/tx/toLogin
+
+##############################################
+
+
+
 
