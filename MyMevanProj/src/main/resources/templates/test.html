@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--使用thymeleaf模板命名空间-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title-Test in Template</title>
+</head>
+<body>
+<span th:text="${hello}" th:id="${hello}"> test thymeleaf template</span>
+<br/>
+<span th:id="${hello}"> test thymeleaf template</span><br/>
+<span th:text="${personAtt.username + ' '+ personAtt.password + ' '+  personAtt.birth}"> </span>
+<br>
+<span th:text="${personAtt.username.toUpperCase()}"></span>
+<br>
+<span th:text="${personAtt.birth.getTime()}"></span>
+
+<br>
+<span th:text="${#calendars.format(personAtt.birth,'yyyy-MM-dd')}"></span>
+
+<br>
+<span th:text="${#lists.size(list)}"></span>
+
+<br>
+<span th:text="${#strings.toUpperCase('tom cat')}"></span>
+
+<br>
+<!-- error
+<a th:href="@{/test1(username='User Name Handsome',password='666666',birth=${personAtt.birth})}">点击跳转</a>
+-->
+
+<br>
+<span th:text='string'></span>
+
+<br>
+<span th:text="3018+6"></span>
+
+<br>
+<span th:if="1==1">true</span>
+<br>
+<span th:if="1==21">false</span>
+
+
+
+</body>
+</html>

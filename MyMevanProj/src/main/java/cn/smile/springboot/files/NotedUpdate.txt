@@ -120,6 +120,7 @@ Web开发
     1). src/resources/static文件夹相当于 Spring MVC中的webApp。 里面一般存放css，images，.html文件。
         静态资源访问如：http://localhost:8081/tx/index.html
                     http://localhost:8081/tx/images/timg.jpg
+                    http://localhost:8081/tx/css/login.css
     2)./**"访问当前项目的任何资源，都去静态资源文件夹找映射：
         classpath:/META-INF/resources/
         classpath:resources/
@@ -142,6 +143,7 @@ Web开发
 18 thymeleaf模板加载流程
     模板有很多种：JSP，Velocity，Freemarker，Thymeleaf。。。
     Springboot推荐使用Thymeleaf： 语法更简单，功能更强大。
+    https://www.thymeleaf.org
 
     1）使用thymeleaf：
         a. 在pom.xml文件中引入：
@@ -159,6 +161,8 @@ Web开发
         e. 访问模板： http://localhost:8081/tx/toLogin
 
 ##############################################
+
+
 
 
 

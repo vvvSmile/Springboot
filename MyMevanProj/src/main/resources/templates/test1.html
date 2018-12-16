@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!--使用thymeleaf模板命名空间-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title-Test1 in Template</title>
+</head>
+<p>Name:<span th:text="${user.username}">Sebastian</span></p>
+<p>Surname:<span th:text="${user.password}">Pepper</span></p>
+<p>Nationality:<span th:text="${user.birth}">Saturn</span></p>
+<br>
+
+<!--Property or field 'user' cannot be found on null  -- error for HttpSession --需要加上seesion， 但是还是error
+<p>Name:<span th:text="${seesion.user.username}">Sebastian</span></p>
+<p>Surname:<span th:text="${seesion.user.password}">Pepper</span></p>
+<p>Nationality:<span th:text="${seesion.user.birth}">Saturn</span></p>
+-->
+
+<div th:object="${session.user}">
+<p>Name:<span th:text="*{username}">Sebastian</span></p>
+<p>Surname:<span th:text="*{password}">Pepper</span></p>
+<p>Nationality:<span th:text="*{birth}">Saturn</span></p>
+</div>
+
+
+
+</body>
+</html>

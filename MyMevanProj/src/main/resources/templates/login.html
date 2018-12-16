@@ -1,8 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<!--使用thymeleaf模板命名空间-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Template Login-Page</title>
+
+    <!--常规href
+    <link href="css/login.css" rel="stylesheet" type="text/css" />
+    -->
+
+    <!--thymeleaf href
+    <link th:href="@{css/login.css}" rel="stylesheet" type="text/css" />
+    -->
+
+    <!--thymeleaf href 绝对路径    -->
+    <link th:href="@{/css/login.css}" rel="stylesheet" type="text/css" />
+
+
 </head>
 <body>
 <a>Welcome to Template login page!!!</a>
