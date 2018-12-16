@@ -114,5 +114,27 @@ spring.profiles.active=dev
         5）可以通过更改配置文件debug=true查看哪些自动配置类使用在当前应用。--也可以打断点的方式查看
 
 ##############################################
+17 springboot之web静态资源访问规则
+    1). src/resources/static文件夹相当于 Spring MVC中的webApp。 里面一般存放css，images，.html文件。
+        静态资源访问如：http://localhost:8081/tx/index.html
+                    http://localhost:8081/tx/images/timg.jpg
+    2)./**"访问当前项目的任何资源，都去静态资源文件夹找映射：
+        classpath:/META-INF/resources/
+        classpath:resources/
+        classpath:static/   -->推荐使用static存放静态资源
+        classpath:src/resources/public 文件夹也可以
+    3) 所有/webjars/**,都去classpath:/META-INT/resources/webjars/ 找资源。跟常规html里面添加js/jQuery文件引用效果一样：<script src=""></script>
+        webjars: 以jar包的方式引入静态资源； http://www.webjars.org/  --> 通过Maven添加依赖到pom.xml文件中
+        如添加jquery webjars：
+            a. <dependency>
+                   <groupId>org.webjars</groupId>
+                   <artifactId>jquery</artifactId>
+                   <version>3.3.1-1</version>
+               </dependency>
+            b.resources之前的文件目录就是classpath, 访问jquery：http://localhost:8081/tx/webjars/jquery/3.3.1-1/jquery.js
+              jquery的完整路径为： C:\Users\Administrator\.m2\repository\org\webjars\jquery\3.3.1-1\jquery-3.3.1-1.jar!\META-INF\resources\webjars\jquery\3.3.1-1\jquery.js
 
+    4）WebMvcAutoConfiguration.class WebMvc自动配置类分析为何webjars能生效：
+
+    
 
