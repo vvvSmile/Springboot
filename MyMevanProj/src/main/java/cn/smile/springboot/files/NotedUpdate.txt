@@ -161,6 +161,45 @@ Web开发
         e. 访问模板： http://localhost:8081/tx/toLogin
 
 ##############################################
+Springboot整合springmvc：
+----------------------------------------------
+22 springboot自动管理springmvc组件上
+23 springboot自动管理springmvc组件下
+
+    Springmvc的自动解管理：
+        中央转发器
+        控制器
+        视图解析器
+        静态资源访问
+        消息转换器
+        格式化
+        静态资源管理
+
+    1）中央转发器
+        中央转发器被Springboot自动接管，不在需要我们在web.xml中配置，我们闲杂的项目也不是web项目，也不存在web.xml.
+        WebMvcAutoConfiguration
+        org.springframework.boot.autoconfigure.web.servlet.DispatcherServletAutoConfiguration
+    2）控制器
+        控制器Controller在springboot的注解扫描范围内自动管理。--》TestControllder.class --> hello()
+    3）视图解析器
+        包括ContextNegotiatingViewResolver和BeanNameViewResolver beans，曾经的配置文件无需再配置
+        WebMvcAutoConfiguration--> WebMvcAutoConfigurationAdapter --> defaultViewResolver()方法，默认视图解析器
+        ContextNegotiatingViewResolver.class -- initServletContext 收集所有的视图解析器
+
+        如果我们用thymeleaf的话，thymeleaf可以收集视图。
+
+        当做文件上传的时候我们也会发现multipartResolver是自动被配置好的页面。
+    4) 消息转换器
+        WebMvcAutoConfiguration.class --> configureMessgageConverters 方法
+            public PersonJson getJson(){
+            //返回一个json： {"name":"HelloPersonJson","age":18,"birth":"2018-12-18T13:56:19.991+0000"}
+            //这就是消息转换器的作用--可以扩展
+    5）格式转换器
+        跟消息转换器类似。 addFormatters方法
+
+##############################################
+
+
 
 
 
