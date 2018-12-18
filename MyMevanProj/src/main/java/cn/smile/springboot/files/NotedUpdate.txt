@@ -161,10 +161,12 @@ Web开发
         e. 访问模板： http://localhost:8081/tx/toLogin
 
 ##############################################
-Springboot整合springmvc：
+Springboot整合springmvc：+ 扩展springmvc
+Note: /tx disabled
 ----------------------------------------------
 22 springboot自动管理springmvc组件上
 23 springboot自动管理springmvc组件下
+24 25 26 springboot扩展springmvc
 
     Springmvc的自动解管理：
         中央转发器

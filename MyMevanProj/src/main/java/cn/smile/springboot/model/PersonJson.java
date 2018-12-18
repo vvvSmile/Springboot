@@ -1,5 +1,7 @@
 package cn.smile.springboot.model;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import java.util.Date;
 
 public class PersonJson {
@@ -8,6 +10,10 @@ public class PersonJson {
 
     private int age;
 
+    @JSONField(format = "yyyy--MM--dd")
+    //Alibaba jason  http://localhost:8081/helloAliJson
+    //disabled:{ "age":18, "birth":1545144630623, "name":"HelloAliJson" }
+    //enabled: { "age":18, "birth":"2018--12--18", "name":"HelloAliJson" }
     private Date birth;
 
     public String getName() {

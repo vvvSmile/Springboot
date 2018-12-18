@@ -14,5 +14,7 @@ IntelliJ IDEA:
 自动格式化： Ctrl+Alt+L
 热部署：Ctrl+F9
 添加getter、setter方法的快捷键: Alt+Insert
+导入包：Ctrl+O
+
 
 

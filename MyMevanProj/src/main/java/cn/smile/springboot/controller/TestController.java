@@ -65,4 +65,24 @@ public class TestController {
         return p;
     }
 
+    @ResponseBody
+    @RequestMapping("/helloDateFormat")
+    public String helloDateFormat(Date birth){
+        //自定义日期格式转化器
+        //http://localhost:8081/helloDateFormat?birth=2019-12-12
+        //-->Thu Dec 12 00:00:00 CST 2019  -->控制台可查看
+        System.out.println(birth);
+        return "success";
+    }
+
+    @ResponseBody
+    @RequestMapping("/helloAliJson")
+    public PersonJson getAliJson(){
+        PersonJson p=new PersonJson();
+        p.setAge(18);
+        p.setBirth(new Date());
+        p.setName("HelloAliJson");
+        return p;
+    }
+
 }
