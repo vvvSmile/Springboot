@@ -6,6 +6,8 @@ package cn.smile.demo;
  */
 
 import cn.smile.springboot.HelloController;
+import cn.smile.springboot.classes.MyServlet;
+import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -18,4 +20,7 @@ public class BeanTest {
         System.out.println("BeanTest in BeanTest()");
         return new BeanTest();
     }
+
+
+
 }

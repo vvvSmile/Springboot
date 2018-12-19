@@ -85,4 +85,9 @@ public class TestController {
         return p;
     }
 
+    @ResponseBody
+    @RequestMapping("/myfilter")
+    public String myFilter(){
+        return "hello my filter";
+    }
 }
