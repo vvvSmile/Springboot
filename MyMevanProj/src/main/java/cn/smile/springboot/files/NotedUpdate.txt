@@ -200,6 +200,12 @@ Note: /tx disabled
         跟消息转换器类似。 addFormatters方法
 
 ##############################################
+27 springboot内嵌WEB服务器加载原理- no code
+28 springboot注册web三大组件[Servlet,Filter,Listener] --自我实现注册 --Tomcat的内置配置
+
+##############################################
+
+
 
 
 

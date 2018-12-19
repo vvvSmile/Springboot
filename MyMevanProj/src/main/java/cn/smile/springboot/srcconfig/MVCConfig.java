@@ -61,6 +61,8 @@ public class MVCConfig implements WebMvcConfigurer {
         //注册拦截器--链式结构
         registry.addInterceptor(new TestInterceptor())
                 .addPathPatterns("/**") //表示拦截所有
-                .excludePathPatterns("/helloAliJson");  //不拦截/helloAliJson
+                .excludePathPatterns("/helloAliJson")  //不拦截/helloAliJson
+                .excludePathPatterns("/**"); //不拦截
+
     }
 }
