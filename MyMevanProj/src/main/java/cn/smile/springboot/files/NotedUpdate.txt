@@ -223,22 +223,30 @@ Note: /tx disabled
             Deployment tab: + --> Artifact --> 选择 war exploded
 
             以上配置完成后，可以从Application Servers 启动。
-            测试：新建一个jsp （在webapp目录下），启动之后，访问jsp
+            测试：新建一个jsp项目 （在webapp目录下创建success.jsp），启动之后，访问jsp
 
 ##############################################
+30 springboot外置服务器启动原理
 
+    1) jsp项目配置前缀后缀。
+        spring.mvc.view.prefix=/WEB-INF/jsp/
+        spring.mvc.view.suffix=.jsp
+    2) 创建一个Controller
+        @Controller
+        public class MyController(){
+            @RequestMapping("hellosuccess")
+            public String hello(){
+                return "success";  //跳转到success.jsp
+            }
 
+            @RequestMapping("helloModel")
+                        public String hello(Model model){
+                            model.addAttribute("jspmodel","hello success");
+                            return "success";  //跳转到success.jsp
+                        }
+        }
+    3) 之前（内置Tomcat服务器的时候）是通过SpringBoot应用启动的时候initiate Tomcat服务器。
+       现在（配置的Tomcat服务器的时候）反过来了， 先启动服务器，然后在带动启动springboot应用程序。-->可以从控制台看的出来
 
-
-
-
-
-
-
-
-
-
-
-
-
+##############################################
 

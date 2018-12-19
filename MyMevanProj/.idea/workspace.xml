@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7a5b74bc-50a0-4d4c-acd4-c4dc7958cd67" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cn/smile/springboot/files/NotedUpdate.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/smile/springboot/files/NotedUpdate.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -21,8 +20,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/cn/smile/springboot/files/NotedUpdate.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="89">
-              <caret line="226" lean-forward="true" selection-start-line="226" selection-end-line="226" />
+            <state relative-caret-position="880">
+              <caret line="252" lean-forward="true" selection-start-line="252" selection-end-line="252" />
             </state>
           </provider>
         </entry>
@@ -229,9 +228,9 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="814" />
-    <option name="y" value="376" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="312" />
+    <option name="y" value="191" />
     <option name="width" value="1191" />
     <option name="height" value="573" />
   </component>
@@ -454,7 +453,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML4 File" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545231765463" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545233077176" />
     <property name="last_opened_file_path" value="D:/Program Files/Git/bin/git.exe" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -641,10 +640,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="908" y="358" width="1191" height="573" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4990366" visible="true" weight="0.29885057" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4990366" visible="true" weight="0.18017058" />
       <window_info id="Structure" order="1" sideWeight="0.5009634" side_tool="true" weight="0.30490404" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -653,7 +652,7 @@
       <window_info id="Favorites" order="6" sideWeight="0.5009634" side_tool="true" weight="0.30490404" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4989339" visible="true" weight="0.29090908" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4989339" visible="true" weight="0.13867822" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1137,8 +1136,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/smile/springboot/files/NotedUpdate.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="226" lean-forward="true" selection-start-line="226" selection-end-line="226" />
+        <state relative-caret-position="880">
+          <caret line="252" lean-forward="true" selection-start-line="252" selection-end-line="252" />
         </state>
       </provider>
     </entry>
