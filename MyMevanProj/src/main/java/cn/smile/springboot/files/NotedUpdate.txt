@@ -204,6 +204,34 @@ Note: /tx disabled
 28 springboot注册web三大组件[Servlet,Filter,Listener] --自我实现注册 --Tomcat的内置配置
 
 ##############################################
+29 springboot集成外部Tomcat配置
+
+    1）必须新建一个war Packaging项目；（目前还没创建）
+    2）将嵌入式的Tomcat指定为provided：
+        <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                    <scope>provided</scope>
+        </dependency>
+    3) 配置项目的目录结构
+        Project Structure --> Modules --> Web
+           a> --> Web Resource Directory Path --> OK --> YES 创建一个webapp
+           b> 添加Deployment Descriptions --> 创建 web.xml （目录结构：\src\main\webapp\WEB-INF\web.xml）
+    4) 配置、部署Tomcat -IDEA 环境
+        a. Edit Configuration --> + --> Tomcat Server/Local
+            Server tab: Name/Application server 就是Tomcat Home /port
+            Deployment tab: + --> Artifact --> 选择 war exploded
+
+            以上配置完成后，可以从Application Servers 启动。
+            测试：新建一个jsp （在webapp目录下），启动之后，访问jsp
+
+##############################################
+
+
+
+
+
+
 
 
 
