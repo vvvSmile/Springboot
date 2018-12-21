@@ -280,4 +280,8 @@ Note: /tx disabled
         打开监控页面：http://localhost:8081/druid
 
 ##############################################
+33 springboot自动配置JdbcTemplate
+    JdbcTemplateAutoConfiguration.class
 
+   1）在数据库新建表
+   2）
