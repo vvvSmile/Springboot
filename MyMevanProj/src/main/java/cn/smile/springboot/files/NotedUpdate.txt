@@ -249,4 +249,21 @@ Note: /tx disabled
        现在（配置的Tomcat服务器的时候）反过来了， 先启动服务器，然后在带动启动springboot应用程序。-->可以从控制台看的出来
 
 ##############################################
+31 springboot数据源配置和自动管理
+    DataSourceAutoConfiguration.class
+    DataSourcePoolMetadataProvidersConfiguration.class--> HikariPoolDataSourceMetadataProviderConfiguration
+
+    在默认情况下，数据库连接可以使用DataSource池进行自动配置。
+        如果Hikari可用，Springboot将使用它
+        如果Commons DBCP2 可用，我将使用它。
+        我们也可以指定数据源配置，通过type来选取使用哪种数据源。
+        spring:
+          datasource:
+            username: root
+            password: root
+            url: jdbc:mysql://localhost:3306/boot_demo
+            driver-class-name: com.mysql.jdbc.Driver
+            type: com.zaxxer.hikari.HikariDataSource
+
+##############################################
 

@@ -10,6 +10,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.sql.DataSource;
+import javax.xml.bind.SchemaOutputResolver;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class SpringbootAppTest {
@@ -26,6 +29,9 @@ public class SpringbootAppTest {
     @Autowired
     ApplicationContext context;
 
+    //数据源测试
+    @Autowired
+    DataSource dataSource;
 
     @Test
     public void contextLoads(){
@@ -35,5 +41,12 @@ public class SpringbootAppTest {
 
         Object person4=context.getBean("person4");
         System.out.println(person4);
+
+        System.out.println(dataSource);  //控制台打印出来了数据源 HikariDataSource (null)
+
     }
+
+
+
+
 }
