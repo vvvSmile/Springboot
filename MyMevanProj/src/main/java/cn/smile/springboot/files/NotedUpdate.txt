@@ -249,6 +249,8 @@ Note: /tx disabled
        现在（配置的Tomcat服务器的时候）反过来了， 先启动服务器，然后在带动启动springboot应用程序。-->可以从控制台看的出来
 
 ##############################################
+***** springboot数据层开发 ******************
+##############################################
 31 springboot数据源配置和自动管理
     DataSourceAutoConfiguration.class
     DataSourcePoolMetadataProvidersConfiguration.class--> HikariPoolDataSourceMetadataProviderConfiguration
@@ -264,6 +266,18 @@ Note: /tx disabled
             url: jdbc:mysql://localhost:3306/boot_demo
             driver-class-name: com.mysql.jdbc.Driver
             type: com.zaxxer.hikari.HikariDataSource
+
+##############################################
+32 springboot整合阿里Druid数据源
+    1）添加依赖
+    2）配置druid 参数 （这里是.yaml）
+    3）创建数据源注册类
+    4) System.out.println(dataSource);  //测试DruidDataSource
+
+    配置Druid运行期监控（运维）：
+        1）注册一个Servlet
+        2）配置一个web监控的filter
+        打开监控页面：http://localhost:8081/druid
 
 ##############################################
 

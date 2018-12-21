@@ -42,7 +42,9 @@ public class SpringbootAppTest {
         Object person4=context.getBean("person4");
         System.out.println(person4);
 
-        System.out.println(dataSource);  //控制台打印出来了数据源 HikariDataSource (null)
+        //System.out.println(dataSource);  //控制台打印出来了数据源 HikariDataSource (null)
+
+        System.out.println(dataSource);  //测试DruidDataSource
 
     }
 
