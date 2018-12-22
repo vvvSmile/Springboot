@@ -47,6 +47,10 @@ public class SpringbootAppTest {
     @Autowired
     MybatisPersonMapper personMapper;
 
+    //测试配置文件整合mybatis
+    @Autowired
+    MybatisPersonMapper configPersonMapper;
+
     @Test
     public void contextLoads(){
         System.out.println(person);
@@ -92,5 +96,12 @@ public class SpringbootAppTest {
         personMapper.delete(1);
     }
 
+
+    //测试测试配置文件整合mybatis
+    @Test
+    public void congigMybatisPerson(){
+        List<MybatisPerson> person=configPersonMapper.selectPersons();
+        System.out.println(person);
+    }
 
 }

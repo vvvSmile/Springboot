@@ -7,6 +7,7 @@ package cn.smile.springboot;
 import cn.smile.springboot.classes.MyFilter;
 import cn.smile.springboot.classes.MyListener;
 import cn.smile.springboot.classes.MyServlet;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
@@ -18,6 +19,7 @@ import org.springframework.context.annotation.ImportResource;
 import java.util.Arrays;
 //import org.springframework.boot.autoconfigure.web.servlet.HttpEncodingAutoConfiguration;
 
+@MapperScan("cn.smile.springboot.mapper")
 @ImportResource(locations = {"classpath:beans.xml"})
 @SpringBootApplication
 public class SpringbootApp {

@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.*;
 import java.util.List;
 
 //注解方式整合mybatis
-@Mapper
+//@Mapper  //--> 前一节34中说的@Mapper注解，也可以不再mapper类中加@Mapper，而是在SpringbootApp中添加一个注解： @MapperScan("cn.smile.springboot.mapper")
 public interface MybatisPersonMapper {
 
     @Select("select * from mybatis_person")  //数据库中的表
@@ -19,5 +19,8 @@ public interface MybatisPersonMapper {
 
     @Delete("delete from mybatis_person where pid=#{pid}")
     public void delete(int pid);
+
+    //配置文件方式mybatis
+    public List<MybatisPerson> getPersons();
 
 }

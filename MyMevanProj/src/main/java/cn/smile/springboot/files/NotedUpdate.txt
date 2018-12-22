@@ -297,3 +297,41 @@ Note: /tx disabled
             但是insert的时候还是有问题，这个时候需要通过MybatisConfig.class解决隐患： Mybatis 跟springboot的自定义配置。
 
 ##############################################
+35 springboot配置文件方式整合mybatis
+    前一节34中说的@Mapper注解，也可以不再mapper类中加@Mapper，而是在SpringbootApp中添加一个注解： @MapperScan("cn.smile.springboot.mapper")
+
+    1) 创建mybatis核心配置文件 sqlMapConfig.xml
+    2）在resources下创建一个mappers文件夹存放映射文件MybatisPersonMapper.xml  (两个配置文件都可以进行配置，配置其一就行)
+    3) 配置数据源信息（重用现有的）+ 需要配置Mybatis：
+        #datasource 配置
+        spring:
+          datasource:
+            username: root
+            password: root
+            url: jdbc:mysql://localhost:3306/boot_demo
+            driver-class-name: com.mysql.jdbc.Driver
+            #type: com.zaxxer.hikari.HikariDataSource
+            #type: org.apache.commons.dbcp2.BasicDataSource
+            type: com.alibaba.druid.pool.DruidDataSource
+            initialSize: 5
+            minIdle: 5
+            maxActive: 20
+            maxWait: 60000
+            timeBetweenEvictionRunsMillis: 60000
+            minEvictableIdleTimeMillis: 300000
+            validationQuery: SELECT 1 FROM DUAL
+            testWhileIdle: true
+            testOnBorrow: false
+            testOnReturn: false
+            pool-prepared-statements: true
+            filters: stat,wall,log4j
+            maxPoolPreparedStatementPerConnectionSize: 20
+            useGlobalDataSource: true
+            connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+        #配置mybatis
+        mybatis:
+          config-location: classpath:sqlMapConfig.xml
+          mapper-location: classpath:mappers/*.xml
+    4) 测试配置文件整合mybatis：     public void congigMybatisPerson(){
+
+##############################################
