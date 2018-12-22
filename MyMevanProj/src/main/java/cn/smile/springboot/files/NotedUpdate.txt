@@ -284,4 +284,16 @@ Note: /tx disabled
     JdbcTemplateAutoConfiguration.class
 
    1）在数据库新建表
-   2）
+   2）测试jdbcTemplate
+##############################################
+34 springboot注解方式整合mybatis
+    1) 添加mybatis依赖
+    2) 创建于数据库表对应的实体类。 --MybatisPerson.class
+    3) 创建MybatisPersonMapper接口
+    4）测试注解方式mybatis -- public void testMybatis(){
+    Note：
+        a.mapper文件夹得与项目文件夹同级，然后Springboot会根据@Mapper把mapper接口扫到IOC容器中，然后可以直接@Autowired注入进行使用。
+        b.如果数据库中的字段中以下划线命名，如p_addr, 则除了可以通过result map之外，还可以在实体类是以驼峰命名的方式 pAddr进行映射, 即数据库p_addr对应实体类的pAddr。
+            但是insert的时候还是有问题，这个时候需要通过MybatisConfig.class解决隐患： Mybatis 跟springboot的自定义配置。
+
+##############################################

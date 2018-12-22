@@ -1,5 +1,7 @@
 package cn.smile.springboot;
 
+import cn.smile.springboot.mapper.MybatisPersonMapper;
+import cn.smile.springboot.model.MybatisPerson;
 import cn.smile.springboot.model.Person;
 import cn.smile.springboot.model.Person2;
 import cn.smile.springboot.model.Person3;
@@ -12,9 +14,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.sql.DataSource;
-import javax.xml.bind.SchemaOutputResolver;
+import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -41,6 +42,11 @@ public class SpringbootAppTest {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
+
+    //测试注解方式mybatis
+    @Autowired
+    MybatisPersonMapper personMapper;
+
     @Test
     public void contextLoads(){
         System.out.println(person);
@@ -63,6 +69,28 @@ public class SpringbootAppTest {
     }
 
 
+    //测试mybatis --测试之前得确保数据库没问题
+    @Test
+    public void testMybatis(){
+        List<MybatisPerson> mybatisPerson=personMapper.selectPersons();
+        System.out.println(mybatisPerson);
+
+    }
+    @Test
+    public void saveMybatisPerson(){
+        MybatisPerson mybatisPerson=new MybatisPerson();
+        mybatisPerson.setAddr("shanghai");
+        mybatisPerson.setBirth(new Date());
+        mybatisPerson.setGender("1");
+        mybatisPerson.setPassword("123");
+        mybatisPerson.setUsername("handsome");
+        //mybatisPerson.setPid(1);
+        personMapper.insert(mybatisPerson);
+    }
+    @Test
+    public void deleteMybatisPerson(){
+        personMapper.delete(1);
+    }
 
 
 }
