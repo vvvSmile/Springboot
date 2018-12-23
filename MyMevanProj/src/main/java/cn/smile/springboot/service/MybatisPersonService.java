@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Options;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Map;
 
 @Transactional
 public interface MybatisPersonService {
@@ -21,4 +22,5 @@ public interface MybatisPersonService {
 
     public void delete(int pid);
 
+    public MybatisPerson getPersonByUserPass(Map<String,String> map);
 }

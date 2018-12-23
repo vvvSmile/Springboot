@@ -16,10 +16,45 @@
     <!--thymeleaf href 绝对路径    -->
     <link th:href="@{/css/login.css}" rel="stylesheet" type="text/css" />
 
+    <script th:src="@{/webjars\jquery\3.3.1-1\jquery.js}"></script>
+    <script >
+        function loginClick(){
+            $("form").submit();
+        }
+    </script>
 
 </head>
 <body>
 <a>Welcome to Template login page!!!</a>
 <a>Ctrl+Shift_L</a>
+
+<div id="login">
+    <div id="top">
+        <div id="top_left"><img src="images/login_03.gif" /></div>
+        <div id="top_right"></div>
+    </div>
+    <p th:text="${tip}"></p>
+    <form th:action="@{/login}" method="post">
+        <div id="center">
+            <div id="center_left"></div>
+            <div id="center_middle"></div>
+            <div id="user">用 户
+                <input type="text" name="username" />
+            </div>
+            <div id="password">密 码
+                <input type="password" name="password" />
+            </div>
+            <div id="btn"><a href="#" onclick="loginClick">登录</a>    <a href="#">清空</a></div>
+
+            <div id="center_right"></div>
+        </div>
+    </form>
+
+    <div id="down">
+        <div id="down_left"></div>
+        <div id="down_right"></div>
+    </div>
+
+</div>
 </body>
 </html>

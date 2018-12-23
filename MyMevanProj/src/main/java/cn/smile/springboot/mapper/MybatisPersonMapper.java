@@ -4,6 +4,7 @@ import cn.smile.springboot.model.MybatisPerson;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
+import java.util.Map;
 
 //注解方式整合mybatis
 //@Mapper  //--> 前一节34中说的@Mapper注解，也可以不再mapper类中加@Mapper，而是在SpringbootApp中添加一个注解： @MapperScan("cn.smile.springboot.mapper")
@@ -29,5 +30,9 @@ public interface MybatisPersonMapper {
 
     //配置文件方式mybatis
     public List<MybatisPerson> getPersons();
+
+    @Select("select from mybatis_person where username= #{username}and  pid=#{pid}")
+    public MybatisPerson getPersonByUserPass(Map<String,String> map);
+
 
 }
