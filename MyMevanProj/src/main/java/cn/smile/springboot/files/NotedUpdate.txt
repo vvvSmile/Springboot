@@ -335,3 +335,8 @@ Note: /tx disabled
     4) 测试配置文件整合mybatis：     public void congigMybatisPerson(){
 
 ##############################################
+36 springboot开发企业信息系统搭建环境
+    重用 依赖 + yaml + resources/static + resources/templates + DruidConfig + MybatisConfig + mapper(最好将这个文件夹更改为dao)/MybatisPersonMapper + Model/MybatisPerson
+    另外增加service和接口实现，来完成坏境搭建。
+
+##############################################

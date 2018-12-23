@@ -12,10 +12,17 @@ public interface MybatisPersonMapper {
     @Select("select * from mybatis_person")  //数据库中的表
     public List<MybatisPerson> selectPersons();
 
+    @Select("select * from mybatis_person where pid = #{pid}")  //数据库中的表
+    public MybatisPerson getPersonById(int pid);
+
     @Options(useGeneratedKeys = true, keyProperty = "pid")  //数据库自增列处理
     @Insert("insert into mybatis_person(pid, username, password, addr, gender, birth) " +
             "values(#{pid},#{usernmae},#{password},#{addr},#{gender},#{birth})")  //数据库中的表
     public void insert(MybatisPerson person);
+
+    @Update("update mybatis_person set username = #{username} , password = #{password}, addr = #{addr}, gender = #{gender}, birth = #{birth} " +
+            "where pid = #{pid}")  //数据库中的表
+    public void updatePerson(MybatisPerson person);
 
     @Delete("delete from mybatis_person where pid=#{pid}")
     public void delete(int pid);
