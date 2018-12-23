@@ -31,7 +31,7 @@
             <td th:text="${p.pname}"></td>
             <td th:text="${p.gender == 1}? '男':'女'"></td>
             <td th:text="${#calendars.format(p.birth,'yyyy-MM-dd'}"></td>
-            <td th:href="@{/update(pid=${p.pid})}">修改</td>
+            <td th:href="@{/getPerson(pid=${p.pid})}">修改</td>
             <td th:href="@{/delete(pid=${p.pid})}">删除</td>
         </tr>
     </table>

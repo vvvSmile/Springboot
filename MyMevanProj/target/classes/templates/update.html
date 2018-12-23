@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Title</title>
+
+    <style type="css">
+    </style>
+
+</head>
+<body>
+<a>form main.html.....</a>
+
+<div id="all">
+    <form th:action="@{/update}" method="post">
+        <input type="hidden" name="pid" th:value="${p.pid}"/>  <!--隐藏类-->
+        <table class="mt">
+            <tr>
+                <td>用户名</td>
+                <td><input type="text" name="username" th:value="${p.username}"></td>
+            </tr>
+            <tr>
+                <td>密码</td>
+                <td><input type="password" name="password" th:value="${p.password}"></td>
+            </tr>
+            <tr>
+                <td>姓名</td>
+                <td><input type="text" name="pname" th:value="${p.pname}"></td>
+            </tr>
+            <tr>
+                <td>性别</td>
+                <td>
+                    <select name="gender" style="width:175px">
+                        <option value="1" th:selected="${p.gender == 1}">男</option>
+                        <option value="2" th:selected="${p.gender == 2}">女</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>地址</td>
+                <td><input type="text" name="pAddr" th:value="${p.pAddr}"></td>
+            </tr>
+            <tr>
+                <td>生日</td>
+                <td><input type="text" name="birth" th:value="${#calendars.format(p.birth,'yyyy-MM-dd')}"></td>
+            </tr>
+            <tr>
+                <td>提交</td>
+                <td><input type="submit" value="提交"></td>
+            </tr>
+
+        </table>
+    </form>
+
+
+</div>
+
+</body>
+</html>
