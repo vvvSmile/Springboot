@@ -114,7 +114,7 @@ spring.profiles.active=dev
         5）可以通过更改配置文件debug=true查看哪些自动配置类使用在当前应用。--也可以打断点的方式查看
 
 ##############################################
-Web开发
+*************三、 Web开发 ********************
 ##############################################
 17 springboot之web静态资源访问规则
     1). src/resources/static文件夹相当于 Spring MVC中的webApp。 里面一般存放css，images，.html文件。
@@ -249,7 +249,7 @@ Note: /tx disabled
        现在（配置的Tomcat服务器的时候）反过来了， 先启动服务器，然后在带动启动springboot应用程序。-->可以从控制台看的出来
 
 ##############################################
-***** springboot数据层开发 ******************
+*****四、 springboot数据层开发 ******************
 ##############################################
 31 springboot数据源配置和自动管理
     DataSourceAutoConfiguration.class
@@ -335,8 +335,23 @@ Note: /tx disabled
     4) 测试配置文件整合mybatis：     public void congigMybatisPerson(){
 
 ##############################################
+********五、 springboot 开发企业信息系统**********
+##############################################
 36 springboot开发企业信息系统搭建环境
+    引入资源：
     重用 依赖 + yaml + resources/static + resources/templates + DruidConfig + MybatisConfig + mapper(最好将这个文件夹更改为dao)/MybatisPersonMapper + Model/MybatisPerson
     另外增加service和接口实现，来完成坏境搭建。
 
 ##############################################
+37 springboot开发企业信息系统查询
+    thymeleaf模板处理：
+    重用 MVCConfig +
+    创建数据库坏境
+    编写数据层
+    -编写service
+    -页面处理
+    -用户登录
+
+    主要是查询显示
+##############################################
+

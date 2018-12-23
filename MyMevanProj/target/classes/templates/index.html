@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title-Index Page</title>
+    <link href="css/login.css" rel="stylesheet" type="text/css" />
+</head>
+
+<!---->
+<frameset cols="*" rows="136, *" id="frame_main" border="0">
+    <frame th:src="@{header}" noresize="noresize" name="header">
+
+    <frameset cols="menu.html" name="menu"></frameset>
+    <frameset cols="@{main}" name="main"></frameset>
+</frameset>
+
+
+
+<body>
+<a>This is Index page in templates folder....</a>
+</body>
+</html>

@@ -26,6 +26,14 @@ public class MVCConfig implements WebMvcConfigurer {
         //http://localhost:8081/formtest
         //单独页面的跳转，不再需要写空方法了
         registry.addViewController("/formtest").setViewName("form");
+
+        // add by 37 springboot开发企业信息系统查询
+        // http://localhost:8081/index
+        registry.addViewController("/index").setViewName("index");
+        registry.addViewController("/header").setViewName("header");
+        registry.addViewController("/main").setViewName("main");  //应该创建MybatisPersonController替代
+        registry.addViewController("/menu").setViewName("menu");
+
     }
 
     @Override

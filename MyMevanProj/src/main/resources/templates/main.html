@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Title</title>
+
+    <style type="css">
+    </style>
+
+</head>
+<body>
+<a>form main.html.....</a>
+
+<div id="all">
+    <table>
+        <tr>
+            <td>用户名</td>
+            <td>姓名</td>
+            <td>性别</td>
+            <td>生日</td>
+            <td>操作</td>
+        </tr>
+        <tr th:each="p:${pList}">
+            <td th:text="${p.username}"></td>
+            <td th:text="${p.pname}"></td>
+            <td th:text="${p.gender == 1}? '男':'女'"></td>
+            <td th:text="${#calendars.format(p.birth,'yyyy-MM-dd'}"></td>
+            <td th:href="@{/update(pid=${p.pid})}">修改</td>
+            <td th:href="@{/delete(pid=${p.pid})}">删除</td>
+        </tr>
+    </table>
+
+
+</div>
+
+</body>
+</html>
