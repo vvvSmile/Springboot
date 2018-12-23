@@ -1,5 +1,6 @@
 package cn.smile.springboot.srcconfig;
 
+import cn.smile.springboot.interceptor.LoginInterceptor;
 import cn.smile.springboot.TestInterceptor;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
@@ -14,6 +15,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -73,5 +75,17 @@ public class MVCConfig implements WebMvcConfigurer {
                 .excludePathPatterns("/helloAliJson")  //不拦截/helloAliJson
                 .excludePathPatterns("/**"); //不拦截
 
+        /* 测试有效，现在注释掉，否则没登录的时候其他的页面都不能访问。
+        //登录拦截器
+        List<String> excludePatterns=new ArrayList<String>();  //列出哪些不需要被拦截，一般登录页面和静态资源不需要拦截
+        excludePatterns.add("/css/**");
+        excludePatterns.add("/images/**");
+        excludePatterns.add("/toLogin");
+        excludePatterns.add("/login");
+
+        registry.addInterceptor(new LoginInterceptor())
+                .addPathPatterns("/**") //表示拦截所有
+                .excludePathPatterns(excludePatterns);
+        */
     }
 }

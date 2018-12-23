@@ -7,5 +7,13 @@
 <body>
 <a>form header.html.....</a>
 
+<div id="main">
+    <div id="welcome">
+        <span th:if="${session.user != null}" th:text=" '欢迎回来- '+ ${session.username}"></span>
+        <span th:if="${session.user != null}" th:text=" '请登录 '"></span>
+        <img src="images/clock.gif"/> 学习是最好的投资！！！
+    </div>
+</div>
+
 </body>
 </html>
