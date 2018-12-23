@@ -12,13 +12,19 @@
 <a>form main.html.....</a>
 
 <div id="all">
+
+    <div>
+        <a th:href="@{/add}">添加</a>
+    </div>
+
     <table>
         <tr>
             <td>用户名</td>
             <td>姓名</td>
             <td>性别</td>
             <td>生日</td>
-            <td>操作</td>
+            <td>修改</td>
+            <td>删除</td>
         </tr>
         <tr th:each="p:${pList}">
             <td th:text="${p.username}"></td>

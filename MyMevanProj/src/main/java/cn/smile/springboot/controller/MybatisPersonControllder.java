@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -22,4 +23,11 @@ public class MybatisPersonControllder {
         model.addAttribute("pList",pList);
         return "main";  //返回main页面
     }
+
+    @PostMapping("/save")  //error (type=Method Not Allowed, status=405).得用@PostMapping
+    public String save(MybatisPerson person){
+        personService.insert(person);
+        return "redirect:main";  //添加完user之后跳转到main页面
+    }
+
 }

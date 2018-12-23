@@ -31,6 +31,7 @@ public class MVCConfig implements WebMvcConfigurer {
         // http://localhost:8081/index
         registry.addViewController("/index").setViewName("index");
         registry.addViewController("/header").setViewName("header");
+        registry.addViewController("/add").setViewName("add");
         registry.addViewController("/main").setViewName("main");  //应该创建MybatisPersonController替代
         registry.addViewController("/menu").setViewName("menu");
 

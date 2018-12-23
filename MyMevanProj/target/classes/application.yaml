@@ -72,6 +72,9 @@ spring:
     maxPoolPreparedStatementPerConnectionSize: 20
     useGlobalDataSource: true
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+  mvc:
+    date-format: yyyy-MM-dd
+
 #配置mybatis
 mybatis:
   config-location: classpath:sqlMapConfig.xml
